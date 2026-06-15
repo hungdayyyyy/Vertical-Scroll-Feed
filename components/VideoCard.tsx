@@ -43,7 +43,7 @@ const VideoCard = forwardRef<VideoCardHandle, VideoCardProps>(
       },
     }));
 
-    // Auto play/pause based on whether this card is in viewport
+    // Auto play/pause
     useEffect(() => {
       if (isActive) {
         videoRef.current?.play().catch(() => {});
@@ -65,7 +65,7 @@ const VideoCard = forwardRef<VideoCardHandle, VideoCardProps>(
         setIsPlaying(true);
       }
 
-      // Show animated icon feedback
+      // icon  feedback
       setShowPauseIcon(true);
       if (iconTimerRef.current) clearTimeout(iconTimerRef.current);
       iconTimerRef.current = setTimeout(() => setShowPauseIcon(false), 700);
@@ -104,7 +104,7 @@ const VideoCard = forwardRef<VideoCardHandle, VideoCardProps>(
           className="video-element"
         />
 
-        {/* Play/Pause */}
+        {/* Play/Pause icon overlay */}
         {showPauseIcon && (
           <div className="play-pause-overlay">
             <div className="play-pause-icon">
@@ -124,7 +124,6 @@ const VideoCard = forwardRef<VideoCardHandle, VideoCardProps>(
           </div>
         )}
 
-        {/* Gradient overlay */}
         <div className="gradient-overlay" />
 
         {/* Bottom info */}

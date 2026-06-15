@@ -17,7 +17,7 @@ export default function AuthorInfo({ video }: AuthorInfoProps) {
           </span>
         ))}
       </div>
-      {/* Scrolling icon */}
+      {/* Scrolling music ticker */}
       <div className="music-ticker">
         <svg viewBox="0 0 24 24" fill="white" width="14" height="14">
           <path d="M9 18V5l12-2v13" />

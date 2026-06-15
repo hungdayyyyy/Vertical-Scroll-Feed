@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navigation from "@/components/Navigation";
+import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   title: "VerTok – Video Feed",
@@ -13,7 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi">
-      <body>{children}</body>
+      <body>
+        <div className="app-layout">
+          <Navigation />
+          <main className="main-area">
+            <PageTransition>{children}</PageTransition>
+          </main>
+        </div>
+      </body>
     </html>
   );
 }

@@ -2,8 +2,8 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import VideoCard, { VideoCardHandle } from "./VideoCard";
+import { VideoItem } from "@/types";
 import { mockVideos } from "@/data/mockVideos";
-
 export default function VideoFeed() {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -11,7 +11,7 @@ export default function VideoFeed() {
   const observerRef = useRef<IntersectionObserver | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // detect which video is in viewport
+  // Intersection Observer
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
@@ -46,7 +46,7 @@ export default function VideoFeed() {
 
   return (
     <div className="feed-container" ref={containerRef}>
-      {mockVideos.map((video, index) => (
+      {mockVideos.map((video: VideoItem, index: number) => (
         <div
           key={video.id}
           className="feed-item"
